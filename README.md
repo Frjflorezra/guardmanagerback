@@ -10,3 +10,6 @@ Este es el Proyecto Final para el Bootcamp Fullstack de MINTIC, centrado en la p
 - **Express js**: Express JS es un marco que se ha superpuesto en la parte superior de Node JS.
 - **MySQL**: Es un sistema de gestión de bases de datos relacional.
 - **JWTs**: JSON Web Tokens para la autenticacion de usuario.
+## clonar el projecto
+
+usar ``` git clone https://github.com/Frjflorezra/guardmanager.git ```
