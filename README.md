@@ -12,8 +12,12 @@ Este es el Proyecto Final para el Bootcamp Fullstack de MINTIC, centrado en la p
 - **JWTs**: JSON Web Tokens para la autenticacion de usuario.
 ## clonar el projecto
 
-usar 
 
-``` 
+usar 
+```bash
 git clone https://github.com/Frjflorezra/guardmanager.git
+cd guardmanager
+npm install
 ```
+crean un archivo .env
+ponen las variables de entorno del projecto
