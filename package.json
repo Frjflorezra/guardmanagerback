@@ -1,5 +1,5 @@
 {
-  "name": "guardmanager",
+  "name": "guardmanagerback",
   "version": "1.0.0",
   "description": "Este es el Proyecto Final para el Bootcamp Fullstack de MINTIC, centrado en la parte frontend. El objetivo de este proyecto es demostrar las habilidades y conocimientos adquiridos en el desarrollo de aplicaciones web utilizando tecnologías modernas de frontend.",
   "main": "index.js",
