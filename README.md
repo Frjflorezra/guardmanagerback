@@ -21,3 +21,8 @@ npm install
 ```
 crean un archivo .env
 ponen las variables de entorno del projecto
+
+Iniciar el projecto
+```bash
+node --watch index.js
+```
