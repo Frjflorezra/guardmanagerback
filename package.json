@@ -10,7 +10,7 @@
     "start:watch": "node --watch index.js"
   },
   "keywords": [],
-  "author": "Francisco Florez, Diego Bello, Eduar, Jean Toloza",
+  "author": "Francisco Florez, Diego Bello, Eduar jaimes, Jean Toloza",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",
