@@ -26,3 +26,16 @@ Iniciar el projecto
 ```bash
 node --watch index.js
 ```
+
+Crear tablas en la base de datos y utilizar el seeder
+```bash
+npm install sequelize-cli
+// para crear tablas
+npx sequelize-cli db:migrate
+// para borrar las tablas 
+npx sequelize-cli db:migrate:undo:all
+// para utilizar las seed y llenar las tablas 
+npx sequelize-cli db:seed:all
+// para borrar los datos de la tabla
+npx sequelize-cli db:seed:undo:all  
+```
