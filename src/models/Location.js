@@ -19,6 +19,16 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       unique: true, // Ensures cellphone is unique
       allowNull: false,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     }
   });
 

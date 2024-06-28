@@ -1,15 +1,16 @@
-'use strict';
+"use strict";
 
-import { readdirSync } from 'fs';
-import { basename as _basename, join } from 'path';
-import Sequelize, { DataTypes } from 'sequelize';
-import { env as _env } from 'process';
+import { readdirSync } from "fs";
+import { basename as _basename, join, dirname as _dirname } from "path";
+import Sequelize, { DataTypes } from "sequelize";
+import { env as _env } from "process";
+
+import { fileURLToPath } from "url";
+import configData from "../config/config.json" assert { type: 'json' };
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = _dirname(__filename);
 const basename = _basename(__filename);
 const env = _env.NODE_ENV || 'development';
-import { dirname } from 'path';
-import { fileURLToPath } from 'url';
-import configData from '../config/config.json';
-const __dirname = dirname(fileURLToPath(import.meta.url));
 const config = configData[env];
 const db = {};
 
@@ -17,30 +18,33 @@ let sequelize;
 if (config.use_env_variable) {
   sequelize = new Sequelize(_env[config.use_env_variable], config);
 } else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
+  sequelize = new Sequelize(
+    config.database,
+    config.username,
+    config.password,
+    config
+  );
 }
 
-readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file !== basename &&
-      file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
-    );
-  })
-  .forEach(file => {
-    const model = require(join(__dirname, file))(sequelize, DataTypes);
-    db[model.name] = model;
-  });
 
-Object.keys(db).forEach(modelName => {
+import Guard from "./guard.js";
+import User from "./user.js";
+import Location from "./location.js";
+import Schedule from "./schedule.js";
+import Shift from "./shift.js";
+
+const models = [Guard, User, Location, Schedule, Shift];
+models.forEach((modelImport) => {
+  const model = modelImport(sequelize, DataTypes);
+  db[model.name] = model;
+});
+
+Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);
   }
 });
 
 db.sequelize = sequelize;
-db.Sequelize = Sequelize;
 
 export default db;

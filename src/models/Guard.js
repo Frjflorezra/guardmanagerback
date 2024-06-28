@@ -18,6 +18,16 @@ export default (sequelize, DataTypes) => {
     },
     address: DataTypes.STRING,
     user_id: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    }
   });
 
   Guard.associate = (models) => {

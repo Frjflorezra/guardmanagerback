@@ -1,7 +1,8 @@
-import sequelize from "./src/config/db.js";
+import db from './src/models/index.js'
 import express, { json, urlencoded } from "express";
 import cors from "cors";
 import dotenv from 'dotenv'
+import adminRoutes from './src/routes/adminRoutes.js';
 
 dotenv.config()
 
@@ -16,11 +17,11 @@ app.use(cors());
 app.use(json());
 app.use(urlencoded({ extended: true }));
 //configurar rutas
-
+app.use('/api', adminRoutes);
 
 
 //sincronizar base de datos y levantar servidor
-sequelize
+db.sequelize
   .sync()
   .then(() => {
     app.listen(Port, () => {

@@ -10,7 +10,17 @@ export default (sequelize, DataTypes) => {
     end_date: DataTypes.DATEONLY,
     location_id: DataTypes.INTEGER,
     shift_id: DataTypes.INTEGER,
-    guard_id: DataTypes.INTEGER
+    guard_id: DataTypes.INTEGER,
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    }
   });
 
   Schedule.associate = models => {

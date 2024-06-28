@@ -10,7 +10,17 @@ export default (sequelize, DataTypes) => {
     },
     shift_name: DataTypes.STRING,
     start_time: DataTypes.TIME,
-    end_time: DataTypes.TIME
+    end_time: DataTypes.TIME,
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    }
   });
 
   Shift.associate = models => {

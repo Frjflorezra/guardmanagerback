@@ -18,7 +18,21 @@ export default (sequelize, DataTypes) => {
       allowNull: false,
     },
     role: DataTypes.ENUM('admin', 'guard'), // Replace with actual roles
-    created_date: DataTypes.DATE
+    created_date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    updatedAt: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    }
   });
 
   User.associate = models => {

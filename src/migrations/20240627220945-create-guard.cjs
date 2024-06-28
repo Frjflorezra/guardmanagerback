@@ -24,6 +24,16 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
+      createdAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
+      },
+      updatedAt: {
+        allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: Sequelize.NOW
+      },
       user_id: {
         type: Sequelize.INTEGER,
         references: {
