@@ -6,7 +6,7 @@ import Sequelize, { DataTypes } from "sequelize";
 import { env as _env } from "process";
 
 import { fileURLToPath } from "url";
-import configData from "../config/config.json" assert { type: 'json' };
+import configData from "../config/config.js"/*  assert { type: 'json' } */;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = _dirname(__filename);
 const basename = _basename(__filename);
