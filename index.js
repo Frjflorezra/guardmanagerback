@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import adminRoutes from './src/routes/adminRoutes.js';
 import scheduleRoutes from './routes/scheduleRoutes.js';
 import locationRoutes from './routes/locationRoutes.js'
+import guardRoutes from './src/routes/guardRoutes.js';
 
 dotenv.config()
 
@@ -20,6 +21,7 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 //configurar rutas
 app.use('/api', adminRoutes);
+app.use('/api/guards', guardRoutes)
 
 app.use('/api/schedules', scheduleRoutes);
 app.use('/api/location', locationRoutes)
