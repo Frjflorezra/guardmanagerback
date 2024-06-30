@@ -3,6 +3,8 @@ import express, { json, urlencoded } from "express";
 import cors from "cors";
 import dotenv from 'dotenv'
 import adminRoutes from './src/routes/adminRoutes.js';
+import scheduleRoutes from './routes/scheduleRoutes.js';
+import locationRoutes from './routes/locationRoutes.js'
 
 dotenv.config()
 
@@ -18,6 +20,9 @@ app.use(json());
 app.use(urlencoded({ extended: true }));
 //configurar rutas
 app.use('/api', adminRoutes);
+
+app.use('/api/schedules', scheduleRoutes);
+app.use('/api/location', locationRoutes)
 
 
 //sincronizar base de datos y levantar servidor
