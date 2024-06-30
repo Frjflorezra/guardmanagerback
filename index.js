@@ -3,8 +3,8 @@ import express, { json, urlencoded } from "express";
 import cors from "cors";
 import dotenv from 'dotenv'
 import adminRoutes from './src/routes/adminRoutes.js';
-import scheduleRoutes from './routes/scheduleRoutes.js';
-import locationRoutes from './routes/locationRoutes.js'
+import scheduleRoutes from './src/routes/scheduleRoutes.js';
+import locationRoutes from './src/routes/locationRoutes.js'
 import guardRoutes from './src/routes/guardRoutes.js';
 
 dotenv.config()
@@ -22,7 +22,6 @@ app.use(urlencoded({ extended: true }));
 //configurar rutas
 app.use('/api', adminRoutes);
 app.use('/api/guards', guardRoutes)
-
 app.use('/api/schedules', scheduleRoutes);
 app.use('/api/location', locationRoutes)
 

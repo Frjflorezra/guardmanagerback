@@ -46,11 +46,11 @@ export const updateLocation = async (req, res) => {
         return res.status(404).json({ error: 'Ubicación no encontrada' });
       }
   
-      location.location_name = location_name;
-      location.address = address;
-      location.city = city;
-      location.cellphone = cellphone;
-  
+      location.location_name = location_name ? location_name : location.location_name;
+      location.address = address ? address : location.address;
+      location.city = city ? city : location.city;
+      location.cellphone = cellphone ? cellphone : location.cellphone;
+      
       await location.save();
   
       res.status(200).json(location);
