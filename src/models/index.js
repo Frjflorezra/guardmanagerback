@@ -28,12 +28,13 @@ if (config.use_env_variable) {
 
 
 import Guard from "./guard.js";
+import Session from "./session.js";
 import User from "./user.js";
 import Location from "./location.js";
 import Schedule from "./schedule.js";
 import Shift from "./shift.js";
 
-const models = [Guard, User, Location, Schedule, Shift];
+const models = [Guard, User, Location, Schedule, Shift, Session];
 models.forEach((modelImport) => {
   const model = modelImport(sequelize, DataTypes);
   db[model.name] = model;
