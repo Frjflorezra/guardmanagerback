@@ -6,6 +6,9 @@ import adminRoutes from './src/routes/adminRoutes.js';
 import scheduleRoutes from './src/routes/scheduleRoutes.js';
 import locationRoutes from './src/routes/locationRoutes.js'
 import guardRoutes from './src/routes/guardRoutes.js';
+import authRoutes from './src/routes/authRoutes.js';
+import cookieParser from 'cookie-parser';
+import { userAuthorized } from './src/middlewares/authMiddleware.js';
 
 dotenv.config()
 
@@ -18,10 +21,26 @@ const Port = process.env.PORT;
 app.use(cors());
 // conversion de datos
 app.use(json());
+app.use(cookieParser())
 app.use(urlencoded({ extended: true }));
+
 //configurar rutas
+// 
+app.use('/', userAuthorized);
+
+/* ejemplo de como validar si el usuario ya esta logeado en nuestro sistema */
+app.get('/', (req, res) => {
+  const { user } = req.session;
+  if (!user) return res.status(401).send("Unauthorized");
+  res.send("okay");
+});
+
 app.use('/api', adminRoutes);
-app.use('/api/guards', guardRoutes)
+app.use('/api', authRoutes)
+app.use('/api/guards', guardRoutes);
+
+
+
 app.use('/api/schedules', scheduleRoutes);
 app.use('/api/location', locationRoutes)
 
