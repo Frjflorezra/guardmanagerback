@@ -7,8 +7,6 @@ export const authController = async (req, res) => {
     const { username, password } = req.body
     try {
         const user = await UserRepository.login({ username, password });
-
-        console.log(user);
         const token = jwt.sign({ user: user.user, role: user.role, id: user.user_id }, jwtConfig.secret)
 
         res
