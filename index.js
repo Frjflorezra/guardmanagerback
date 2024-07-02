@@ -25,6 +25,8 @@ app.use(urlencoded({ extended: true }));
 //configurar rutas
 // 
 app.use('/', userAuthorized);
+
+/* ejemplo de como validar si el usuario ya esta logeado en nuestro sistema */
 app.get('/', (req, res) => {
   const { user } = req.session;
   if (!user) return res.status(401).send("Unauthorized");
