@@ -14,8 +14,8 @@ export class UserRepository {
             throw new Error('Usuario no encontrado')
         }
 
-        // const isValid = bcrypt.compareSync(password, foundUser.password);
-        const isValid = password === foundUser.password
+        const isValid = bcrypt.compareSync(password, foundUser.password);
+
         if (!isValid) {
             throw new Error('Contrasenia incorrecta')
         }
