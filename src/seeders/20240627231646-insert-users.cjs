@@ -9,7 +9,7 @@ module.exports = {
         {
           user_id: 1,
           username: "gbuddle0",
-          password: "sT0\\OSqEN",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "guard",
           created_date: "2023-11-21 16:48:17",
           createdAt: new Date(),
@@ -18,7 +18,7 @@ module.exports = {
         {
           user_id: 2,
           username: "abollin1",
-          password: "vA5!+sYfHS#+",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2023-10-22 01:31:28",
           createdAt: new Date(),
@@ -27,7 +27,7 @@ module.exports = {
         {
           user_id: 3,
           username: "alydden2",
-          password: "nT5={Vgv@AzQ",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2024-03-21 14:30:15",
           createdAt: new Date(),
@@ -36,7 +36,7 @@ module.exports = {
         {
           user_id: 4,
           username: "afoulds3",
-          password: "iV8/6<yp",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2024-02-21 00:34:25",
           createdAt: new Date(),
@@ -45,7 +45,7 @@ module.exports = {
         {
           user_id: 5,
           username: "ahorwell4",
-          password: "cJ2/)ggG",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2023-11-13 11:23:53",
           createdAt: new Date(),
@@ -54,7 +54,7 @@ module.exports = {
         {
           user_id: 6,
           username: "acoales5",
-          password: "wI4`*auk`/%",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2024-02-24 08:01:47",
           createdAt: new Date(),
@@ -63,7 +63,7 @@ module.exports = {
         {
           user_id: 7,
           username: "gchampkin6",
-          password: "tG4.&{tm2KL",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "guard",
           created_date: "2024-06-01 14:46:38",
           createdAt: new Date(),
@@ -72,7 +72,7 @@ module.exports = {
         {
           user_id: 8,
           username: "grickcord7",
-          password: "kK9}8P\\jiF=W",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "guard",
           created_date: "2024-04-13 09:31:36",
           createdAt: new Date(),
@@ -81,7 +81,7 @@ module.exports = {
         {
           user_id: 9,
           username: "astains8",
-          password: 'xV9"XM0rnotW\\2K',
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2023-12-04 17:11:50",
           createdAt: new Date(),
@@ -90,7 +90,7 @@ module.exports = {
         {
           user_id: 10,
           username: "guttermare9",
-          password: 'gO7"lGMX&+Dl',
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "guard",
           created_date: "2023-09-02 02:51:50",
           createdAt: new Date(),
@@ -99,7 +99,7 @@ module.exports = {
         {
           user_id: 11,
           username: "gosullivana",
-          password: 'mW0"~K=WfcQdX',
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "guard",
           created_date: "2024-03-04 14:06:50",
           createdAt: new Date(),
@@ -108,7 +108,7 @@ module.exports = {
         {
           user_id: 12,
           username: "aminchib",
-          password: "xU8~IAu(m87&wKM",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2024-03-06 10:23:11",
           createdAt: new Date(),
@@ -117,7 +117,7 @@ module.exports = {
         {
           user_id: 13,
           username: "adruittc",
-          password: "yN8|%kc\"'",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2024-03-08 14:58:58",
           createdAt: new Date(),
@@ -126,7 +126,7 @@ module.exports = {
         {
           user_id: 14,
           username: "abrothertond",
-          password: "fI8*{LEX)o=",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2024-06-09 06:32:51",
           createdAt: new Date(),
@@ -135,7 +135,7 @@ module.exports = {
         {
           user_id: 15,
           username: "aupcotte",
-          password: "fO1{0yVz",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2023-12-27 14:29:56",
           createdAt: new Date(),
@@ -144,7 +144,7 @@ module.exports = {
         {
           user_id: 16,
           username: "gcogglesf",
-          password: "aZ9'MWOkL06O`jL",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "guard",
           created_date: "2024-01-15 17:18:50",
           createdAt: new Date(),
@@ -153,7 +153,7 @@ module.exports = {
         {
           user_id: 17,
           username: "achampkeng",
-          password: "jE6!o$h|&d",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2023-11-30 14:41:31",
           createdAt: new Date(),
@@ -162,7 +162,7 @@ module.exports = {
         {
           user_id: 18,
           username: "gfostonh",
-          password: "qE1?AQn|zWioc,",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "guard",
           created_date: "2024-03-18 14:54:58",
           createdAt: new Date(),
@@ -171,7 +171,7 @@ module.exports = {
         {
           user_id: 19,
           username: "abeasleyi",
-          password: 'sN6"S=w!N',
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2024-01-16 20:23:00",
           createdAt: new Date(),
@@ -180,7 +180,7 @@ module.exports = {
         {
           user_id: 20,
           username: "aswiggj",
-          password: "hC2*U,dw2uM.mh<1",
+          password: "$2b$10$xk8ywouZObSjlRXCDvwcQ.CWWbSOQsbXnvuR9TvFAVy2z7cSz99T6",
           role: "admin",
           created_date: "2024-02-22 03:48:37",
           createdAt: new Date(),
