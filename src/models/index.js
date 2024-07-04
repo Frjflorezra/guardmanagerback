@@ -27,12 +27,12 @@ if (config.use_env_variable) {
 }
 
 
-import Guard from "./guard.js";
-import Session from "./session.js";
-import User from "./user.js";
-import Location from "./location.js";
-import Schedule from "./schedule.js";
-import Shift from "./shift.js";
+import Guard from "./Guard.js";
+import Session from "./Session.js";
+import User from "./User.js";
+import Location from "./Location.js";
+import Schedule from "./Schedule.js";
+import Shift from "./Shift.js";
 
 const models = [Guard, User, Location, Schedule, Shift, Session];
 models.forEach((modelImport) => {

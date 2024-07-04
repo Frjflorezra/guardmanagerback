@@ -45,20 +45,22 @@ export class CreateGuardDTO {
     }
 }
 
-export class UpdateGuardDTO {
-    id;
-    first_name;
-    last_name;
-    cellphone;
-    email;
-    address;
+export class UpdateGuardDTO extends CreateGuardDTO {}
 
-    constructor({ id, first_name, last_name, cellphone, email, address }){
-        this.id = id;
-        this.first_name = first_name;
-        this.last_name = last_name;
-        this.cellphone = cellphone;
-        this.email = email;
-        this.address = address;
-    }
-}
+// export class UpdateGuardDTO {
+//     id;
+//     first_name;
+//     last_name;
+//     cellphone;
+//     email;
+//     address;
+
+//     constructor({ id, first_name, last_name, cellphone, email, address }){
+//         this.id = id;
+//         this.first_name = first_name;
+//         this.last_name = last_name;
+//         this.cellphone = cellphone;
+//         this.email = email;
+//         this.address = address;
+//     }
+// }
