@@ -5,14 +5,16 @@ export class ShowGuardDTO {
     cellphone;
     email;
     address;
+    username;
 
-    constructor({ id, first_name, last_name, cellphone, email, address }){
+    constructor({ id, first_name, last_name, cellphone, email, address, username }){
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
         this.cellphone = cellphone;
         this.email = email;
         this.address = address;
+        this.username = username
     }
 }
 
@@ -38,6 +40,7 @@ export class CreateGuardDTO {
     validateAttributes(){
         for(const key in this){
             if(!this[key]){
+                console.log(key);
                 return false
             }
         }
