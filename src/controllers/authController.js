@@ -14,7 +14,7 @@ export const authController = async (req, res) => {
                 maxAge: 1000 * 60 * 60
             })
             .send({
-                username, token
+                user, token
             })
     } catch (error) {
         res.status(401).send(error.message)
