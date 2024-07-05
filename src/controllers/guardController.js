@@ -10,16 +10,24 @@ const { Guard, User } = db
 
 export const getGuards = async (req, res) => {
     try {
-        const allGuards = await Guard.findAll()
-        const guardsDto = allGuards.map(guard => new ShowGuardDTO({
-            id: guard.guard_id,
-            first_name: guard.first_name,
-            last_name: guard.last_name,
-            cellphone: guard.cellphone,
-            email: guard.email,
-            address: guard.address
-        }))
-
+        const allGuards = await Guard.findAll({
+            include: {
+                model: User,
+                required: true
+            }
+        })
+        // console.log(allGuards[0].User);
+        const guardsDto = allGuards.map((guard) => {
+            return new ShowGuardDTO({
+                id: guard.guard_id,
+                first_name: guard.first_name,
+                last_name: guard.last_name,
+                cellphone: guard.cellphone,
+                email: guard.email,
+                address: guard.address,
+                username: guard.User.username
+            })
+        })
         return res.status(200).json(guardsDto)
     } catch (error) {
         return res.status(500).json({
@@ -56,7 +64,10 @@ export const getGuard = async (req, res) => {
 export const createGuard = async (req, res) => {
     try {
         const guardData = new CreateGuardDTO(req.body)
+        console.log("req.body: ", req.body);
+        console.log("req.body: ", guardData);
         if(!guardData.validateAttributes()){
+            console.log("req.body: ", guardData.first_name, guardData.last_name);
             return res.status(400).json({
                 error: `Faltan datos`
             })
@@ -132,11 +143,14 @@ export const updateGuard = async(req, res) => {
             })
         }
 
-        const password = await bcrypt.hash(guardData.password, 10)
-        await User.update({
-            username: guardData.username,
-            password: password
-        },{
+        const userData = {}
+        userData.username = guardData.username
+        if(guardData.password && guardData.password.length > 7){
+            const password = await bcrypt.hash(guardData.password, 10)
+            userData.password = password
+        }
+        
+        await User.update(userData, {
             where: { user_id: foundGuard.user_id }
         })
 
