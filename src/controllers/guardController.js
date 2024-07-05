@@ -6,8 +6,7 @@ import bcrypt from 'bcrypt'
 import { validateEmail } from '../utils/validation.js'
 import { Op } from 'sequelize'
 
-const { Guard } = db
-const { User } = db
+const { Guard, User } = db
 
 export const getGuards = async (req, res) => {
     try {
@@ -132,6 +131,14 @@ export const updateGuard = async(req, res) => {
                 error: `No se puede usar el correo indicado`
             })
         }
+
+        const password = await bcrypt.hash(guardData.password, 10)
+        await User.update({
+            username: guardData.username,
+            password: password
+        },{
+            where: { user_id: foundGuard.user_id }
+        })
 
         await Guard.update({
             first_name: guardData.first_name,

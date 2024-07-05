@@ -3,6 +3,8 @@ import express, { json, urlencoded } from "express";
 import cors from "cors";
 import dotenv from 'dotenv'
 import adminRoutes from './src/routes/adminRoutes.js';
+import scheduleRoutes from './src/routes/scheduleRoutes.js';
+import locationRoutes from './src/routes/locationRoutes.js'
 import guardRoutes from './src/routes/guardRoutes.js';
 import authRoutes from './src/routes/authRoutes.js';
 import cookieParser from 'cookie-parser';
@@ -39,6 +41,8 @@ app.use('/api/guards', guardRoutes);
 
 
 
+app.use('/api/schedules', scheduleRoutes);
+app.use('/api/location', locationRoutes)
 
 
 //sincronizar base de datos y levantar servidor
