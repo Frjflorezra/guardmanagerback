@@ -26,7 +26,7 @@ app.use(urlencoded({ extended: true }));
 
 //configurar rutas
 // 
-app.use('/', userAuthorized);
+// app.use('/', userAuthorized);
 
 /* ejemplo de como validar si el usuario ya esta logeado en nuestro sistema */
 app.get('/', (req, res) => {
@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 
 app.use('/api', adminRoutes);
 app.use('/api', authRoutes)
-app.use('/api/guards', guardRoutes);
+app.use('/api/guards', userAuthorized, guardRoutes);
 
 
 
