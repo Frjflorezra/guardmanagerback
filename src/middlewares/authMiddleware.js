@@ -3,17 +3,24 @@
 import jwt from 'jsonwebtoken';
 
 export const userAuthorized = (req, res, next) => {
-    const token = req.cookies.access_token;
-    let data = null;
+    let token = req.headers.authorization;
+    if(!token) {
+        return res.status(401).send("No tiene permiso para acceder a este recurso")
+    }
+    token = token.replace("Bearer ", "").trim()
 
     req.session = {
         user: null
     }
 
     try {
-        data = jwt.verify(token, process.env.JWT_SECRET);
+        const data = jwt.verify(token, process.env.JWT_SECRET);
         req.session.user = data;
-    } catch { }
+    } catch(error) {
+        console.log(error);
+        return res.status(401).send("No tiene permiso para acceder a este recurso")
+    }
 
     next();
 }
+
