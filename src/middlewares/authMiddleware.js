@@ -3,7 +3,7 @@
 import jwt from 'jsonwebtoken';
 
 export const userAuthorized = (req, res, next) => {
-    const token = req.cookies.access_token;
+    const token = req.headers.authorization;
     let data = null;
 
     req.session = {
