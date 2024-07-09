@@ -1,6 +1,7 @@
 import db from '../models/index.js';
 const { Schedule } = db;
 
+
 // Crear un nuevo horario (Admin)
 export const createSchedule = async (req, res) => {
   const { start_date, end_date, location_id, shift_id, guard_id } = req.body;
@@ -22,12 +23,20 @@ export const createSchedule = async (req, res) => {
 };
 
 // Obtener todos los horarios (Admin)
+
 export const getSchedules = async (req, res) => {
   try {
-    const schedules = await Schedule.findAll();
+    const schedules = await Schedule.findAll({
+      include: [
+        { model: db.Location },
+        { model: db.Shift },
+        { model: db.Guard }
+      ],
+      attributes: { exclude: ['location_id', 'shift_id', 'guard_id'] }
+    });
     res.status(200).json(schedules);
   } catch (error) {
-    console.log('Error al obtener los horarios:', error);
+    console.error('Error al obtener los horarios:', error);
     res.status(500).json({ error: 'Error al obtener los horarios' });
   }
 };
