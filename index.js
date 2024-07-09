@@ -5,6 +5,7 @@ import dotenv from 'dotenv'
 import adminRoutes from './src/routes/adminRoutes.js';
 import scheduleRoutes from './src/routes/scheduleRoutes.js';
 import locationRoutes from './src/routes/locationRoutes.js'
+import shiftRoutes from './src/routes/shiftRoutes.js'
 import guardRoutes from './src/routes/guardRoutes.js';
 import authRoutes from './src/routes/authRoutes.js';
 import cookieParser from 'cookie-parser';
@@ -38,6 +39,7 @@ app.get('/', (req, res) => {
 app.use('/api', adminRoutes);
 app.use('/api', authRoutes)
 app.use('/api/guards', userAuthorized, guardRoutes);
+app.use('/api/shifts', userAuthorized, shiftRoutes)
 
 
 
