@@ -23,7 +23,6 @@ export const createSchedule = async (req, res) => {
 };
 
 // Obtener todos los horarios (Admin)
-
 export const getSchedules = async (req, res) => {
   try {
     const schedules = await Schedule.findAll({
