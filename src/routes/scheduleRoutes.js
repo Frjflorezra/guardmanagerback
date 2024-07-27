@@ -4,7 +4,7 @@ import { createSchedule, getSchedules, updateSchedule, deleteSchedule, getOneSch
 const router = express.Router();
 
 router.get('/schedules', getSchedules);     
-router.get('/schedule/:id', getOneSchedule)         
+router.get('/schedule', getOneSchedule)         
 router.get('/allschedule', getSchedulesByGuardId)
 router.post('/schedules', createSchedule);             
 router.put('/schedules/:id', updateSchedule);          

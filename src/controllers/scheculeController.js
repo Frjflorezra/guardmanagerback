@@ -1,6 +1,6 @@
 import db from '../models/index.js';
 const { Schedule } = db;
-
+import { Op } from 'sequelize';
 
 // Crear un nuevo horario (Admin)
 export const createSchedule = async (req, res) => {
@@ -23,6 +23,7 @@ export const createSchedule = async (req, res) => {
 };
 
 // Obtener todos los horarios (Admin)
+
 export const getSchedules = async (req, res) => {
   try {
     const schedules = await Schedule.findAll({
@@ -43,32 +44,74 @@ export const getSchedules = async (req, res) => {
 // Obtener horario de un trabajador
 
 export const getOneSchedule = async (req, res) => {
-  const { id } = req.params; 
+  const { guard_id } = req.query;
+  console.log("guard_id: ", guard_id);
+
+  if (!guard_id) {
+    return res.status(400).json({ error: 'Se requiere el parámetro guard_id' });
+  }
+
   try {
+    // Obtener la fecha y hora actuales
+    const now = new Date();
+    const startOfDay = new Date(now.setHours(0, 0, 0, 0)).toISOString();
+    const endOfDay = new Date(now.setHours(23, 59, 59, 999)).toISOString();
 
-    const schedule = await Schedule.findByPk(id);
+    console.log("Start of Day:", startOfDay);
+    console.log("End of Day:", endOfDay);
 
-    if (!schedule) {
-      return res.status(404).json({ error: 'Horario no encontrado' });
+    // Buscar el horario del día actual para el guardia
+    const schedules = await Schedule.findAll({
+      include: [
+        { model: db.Location },
+        { model: db.Shift },
+        { model: db.Guard }
+      ],
+      where: {
+        guard_id: guard_id,
+        [Op.or]: [
+          {
+            start_date: {
+              [Op.between]: [startOfDay, endOfDay] // Horarios que comienzan o están en el rango del día actual
+            }
+          },
+          {
+            end_date: {
+              [Op.between]: [startOfDay, endOfDay] // Horarios que terminan en el rango del día actual
+            }
+          }
+        ]
+      },
+      order: [['createdAt', 'DESC']],  
+      attributes: { exclude: ['location_id', 'shift_id', 'guard_id'] },
+      limit: 1
+    });
+
+    if (schedules.length === 0) {
+      return res.status(404).json({ error: 'No se encontraron horarios para este guardia en el día de hoy' });
     }
 
-    res.status(200).json(schedule);
+    res.status(200).json(schedules);
   } catch (error) {
-    console.log('Error al obtener el horario:', error);
-    res.status(500).json({ error: 'Error al obtener el horario' });
+    console.log('Error al obtener el horario del guardia:', error);
+    res.status(500).json({ error: 'Error al obtener el horario del guardia =c' });
   }
 };
 
 export const getSchedulesByGuardId = async (req, res) => {
-  const { guard_id } = req.query; 
-  console.log("Aqui: ",guard_id)
+  const { guard_id } = req.query;
+  console.log("Aqui: ", guard_id)
 
   try {
 
     const schedules = await Schedule.findAll({
-      where: {
-        guard_id: guard_id 
-      }
+      include: [
+        { model: db.Location },
+        { model: db.Shift },
+        { model: db.Guard }
+      ],
+      where: { guard_id: guard_id },
+      attributes: { exclude: ['location_id', 'shift_id', 'guard_id'] }
     });
 
     if (!schedules || schedules.length === 0) {
