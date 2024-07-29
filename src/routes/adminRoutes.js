@@ -6,9 +6,9 @@ const router = express.Router();
 
 // Admin routes
 router.get('/admins', userAuthorized, authorizeRole('admin'), getUsers);
-router.get('/admins/:id', userAuthorized, authorizeRole('admin'), getUserById);
+router.get('/admins/:id', userAuthorized, getUserById);
 router.post('/admins',  userAuthorized, authorizeRole('admin'), createAdmin);
-router.put('/admins/:id', userAuthorized, authorizeRole('admin'), updateUser);
+router.put('/admins/:id', userAuthorized, updateUser);
 router.delete('/admins/:id', userAuthorized, authorizeRole('admin'), deleteUser);
 
 export default router;
